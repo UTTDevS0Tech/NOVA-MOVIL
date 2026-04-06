@@ -1,7 +1,7 @@
 package com.example.nova_movil.data.remote
 
-import TipoServicioListResponse
 import com.example.nova_movil.data.remote.dto.BasicApiResponse
+import com.example.nova_movil.data.remote.dto.TipoServicioListResponse
 import com.example.nova_movil.data.remote.dto.TipoServicioRequestDto
 import retrofit2.Response
 import retrofit2.http.Body

@@ -12,6 +12,7 @@ import com.example.nova_movil.data.local.SessionManager
 import com.example.nova_movil.data.remote.ApiClient
 import com.example.nova_movil.data.repository.AuthRepository
 import com.example.nova_movil.data.repository.ServicioRepository
+import com.example.nova_movil.data.repository.TipoServicioRepository
 import com.example.nova_movil.ui.auth.LoginRoute
 import com.example.nova_movil.ui.auth.LoginViewModel
 import com.example.nova_movil.ui.auth.LoginViewModelFactory
@@ -19,16 +20,15 @@ import com.example.nova_movil.ui.dashboard.AdminDashboardScreen
 import com.example.nova_movil.ui.servicios.AdminServiciosRoute
 import com.example.nova_movil.ui.servicios.AdminServiciosViewModel
 import com.example.nova_movil.ui.servicios.AdminServiciosViewModelFactory
+import com.example.nova_movil.ui.tipo_servicio.AdminTipoServicioRoute
 import com.example.nova_movil.ui.tipo_servicio.AdminTipoServicioViewModel
 import com.example.nova_movil.ui.tipo_servicio.AdminTipoServicioViewModelFactory
-import com.example.nova_movil.ui.tipo_servicio.TipoServicioFilter
-import com.example.nova_movil.data.repository.TipoServicioRepository
-import com.example.nova_movil.ui.tipo_servicio.AdminTipoServicioRoute
 
 class MainActivity : ComponentActivity() {
 
     private lateinit var loginViewModel: LoginViewModel
     private lateinit var adminServiciosViewModel: AdminServiciosViewModel
+    private lateinit var adminTipoServicioViewModel: AdminTipoServicioViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,14 +42,14 @@ class MainActivity : ComponentActivity() {
         val servicioApi = ApiClient.provideServicioApi(applicationContext)
         val servicioRepository = ServicioRepository(servicioApi)
         val serviciosFactory = AdminServiciosViewModelFactory(servicioRepository)
-        adminServiciosViewModel = ViewModelProvider(this, serviciosFactory)[AdminServiciosViewModel::class.java]
+        adminServiciosViewModel =
+            ViewModelProvider(this, serviciosFactory)[AdminServiciosViewModel::class.java]
 
         val tipoServicioApi = ApiClient.provideTipoServicioApi(applicationContext)
         val tipoServicioRepository = TipoServicioRepository(tipoServicioApi)
         val tipoServicioFactory = AdminTipoServicioViewModelFactory(tipoServicioRepository)
-        val adminTipoServicioViewModel = ViewModelProvider(this, tipoServicioFactory)[AdminTipoServicioViewModel::class.java]
-
-
+        adminTipoServicioViewModel =
+            ViewModelProvider(this, tipoServicioFactory)[AdminTipoServicioViewModel::class.java]
 
         setContent {
             var currentScreen by remember { mutableStateOf("login") }
@@ -73,7 +73,9 @@ class MainActivity : ComponentActivity() {
                         onManageServicesClick = {
                             currentScreen = "admin_servicios"
                         },
-                        onManageServiceTypesClick = {},
+                        onManageServiceTypesClick = {
+                            currentScreen = "admin_tipo_servicio"
+                        },
                         onManageStaffClick = {}
                     )
                 }
@@ -84,21 +86,6 @@ class MainActivity : ComponentActivity() {
                         onBackClick = {
                             currentScreen = "admin_dashboard"
                         }
-                    )
-                }
-
-                "admin_dashboard" -> {
-                    AdminDashboardScreen(
-                        onLogoutClick = {
-                            currentScreen = "login"
-                        },
-                        onManageServicesClick = {
-                            currentScreen = "admin_servicios"
-                        },
-                        onManageServiceTypesClick = {
-                            currentScreen = "admin_tipo_servicio"
-                        },
-                        onManageStaffClick = {}
                     )
                 }
 

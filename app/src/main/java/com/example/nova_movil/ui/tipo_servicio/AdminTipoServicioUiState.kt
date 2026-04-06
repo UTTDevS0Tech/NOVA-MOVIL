@@ -1,6 +1,6 @@
 package com.example.nova_movil.ui.tipo_servicio
 
-import com.example.nova_movil.data.remote.dto.TipoServicio
+import com.example.nova_movil.data.remote.dto.TipoServicioDto
 
 enum class TipoServicioFilter {
     TODOS,

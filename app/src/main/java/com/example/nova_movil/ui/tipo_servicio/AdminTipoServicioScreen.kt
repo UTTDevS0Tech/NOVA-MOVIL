@@ -39,7 +39,6 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableDoubleStateOf
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -123,7 +122,11 @@ fun AdminTipoServicioScreen(
                 horizontalArrangement = Arrangement.SpaceBetween
             ) {
                 IconButton(onClick = onBackClick) {
-                    Icon(Icons.Outlined.ArrowBack, contentDescription = "Volver", tint = TextBrown)
+                    Icon(
+                        imageVector = Icons.Outlined.ArrowBack,
+                        contentDescription = "Volver",
+                        tint = TextBrown
+                    )
                 }
 
                 Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
@@ -135,7 +138,11 @@ fun AdminTipoServicioScreen(
                         ),
                         shape = RoundedCornerShape(16.dp)
                     ) {
-                        Icon(Icons.Outlined.Add, contentDescription = null, modifier = Modifier.size(18.dp))
+                        Icon(
+                            imageVector = Icons.Outlined.Add,
+                            contentDescription = null,
+                            modifier = Modifier.size(18.dp)
+                        )
                         Spacer(modifier = Modifier.size(6.dp))
                         Text("Nuevo")
                     }
@@ -148,7 +155,11 @@ fun AdminTipoServicioScreen(
                         ),
                         shape = RoundedCornerShape(16.dp)
                     ) {
-                        Icon(Icons.Outlined.Refresh, contentDescription = null, modifier = Modifier.size(18.dp))
+                        Icon(
+                            imageVector = Icons.Outlined.Refresh,
+                            contentDescription = null,
+                            modifier = Modifier.size(18.dp)
+                        )
                         Spacer(modifier = Modifier.size(6.dp))
                         Text("Recargar")
                     }
@@ -376,9 +387,22 @@ private fun TipoServicioCard(
 
             Spacer(modifier = Modifier.size(8.dp))
 
-            Text("Precio: $${item.precio ?: 0.0}", color = TextBrown, fontWeight = FontWeight.Medium)
-            Text("Tiempo estimado: ${item.tiempo_estimado ?: 0} min", color = TextBrown, fontWeight = FontWeight.Medium)
-            Text("Servicio ID: ${item.servicio_id ?: 0}", color = TextBrown.copy(alpha = 0.8f))
+            Text(
+                text = "Precio: \$${item.precio ?: 0.0}",
+                color = TextBrown,
+                fontWeight = FontWeight.Medium
+            )
+
+            Text(
+                text = "Tiempo estimado: ${item.tiempo_estimado ?: 0} min",
+                color = TextBrown,
+                fontWeight = FontWeight.Medium
+            )
+
+            Text(
+                text = "Servicio ID: ${item.servicio_id ?: 0}",
+                color = TextBrown.copy(alpha = 0.8f)
+            )
 
             Spacer(modifier = Modifier.size(6.dp))
 
@@ -396,7 +420,11 @@ private fun TipoServicioCard(
                     colors = ButtonDefaults.buttonColors(containerColor = CardBrown),
                     shape = RoundedCornerShape(14.dp)
                 ) {
-                    Icon(Icons.Outlined.Edit, contentDescription = null, modifier = Modifier.size(18.dp))
+                    Icon(
+                        imageVector = Icons.Outlined.Edit,
+                        contentDescription = null,
+                        modifier = Modifier.size(18.dp)
+                    )
                     Spacer(modifier = Modifier.size(6.dp))
                     Text("Editar")
                 }
@@ -409,7 +437,11 @@ private fun TipoServicioCard(
                     ),
                     shape = RoundedCornerShape(14.dp)
                 ) {
-                    Icon(Icons.Outlined.ToggleOn, contentDescription = null, modifier = Modifier.size(18.dp))
+                    Icon(
+                        imageVector = Icons.Outlined.ToggleOn,
+                        contentDescription = null,
+                        modifier = Modifier.size(18.dp)
+                    )
                     Spacer(modifier = Modifier.size(6.dp))
                     Text(if (item.isActivo) "Desactivar" else "Activar")
                 }
@@ -422,7 +454,11 @@ private fun TipoServicioCard(
                     ),
                     shape = RoundedCornerShape(14.dp)
                 ) {
-                    Icon(Icons.Outlined.Delete, contentDescription = null, modifier = Modifier.size(18.dp))
+                    Icon(
+                        imageVector = Icons.Outlined.Delete,
+                        contentDescription = null,
+                        modifier = Modifier.size(18.dp)
+                    )
                     Spacer(modifier = Modifier.size(6.dp))
                     Text("Eliminar")
                 }
