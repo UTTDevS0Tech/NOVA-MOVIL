@@ -3,7 +3,7 @@ package com.example.nova_movil.data.remote.dto
 data class TipoServicioListResponse(
     val status: String?,
     val error: Any?,
-    val data: List<TipoServicioDto>?,
+    val data: List<com.example.nova_movil.data.remote.dto.TipoServicioDto>?,
     val message: String?
 )
 

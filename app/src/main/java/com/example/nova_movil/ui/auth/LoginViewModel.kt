@@ -11,8 +11,8 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 
 class LoginViewModel(
-    private val authRepository: AuthRepository,
-    private val sessionManager: SessionManager
+    private val authRepository: com.example.nova_movil.data.repository.AuthRepository,
+    private val sessionManager: com.example.nova_movil.data.local.SessionManager
 ) : ViewModel() {
 
     private val _uiState = MutableStateFlow(LoginUiState())

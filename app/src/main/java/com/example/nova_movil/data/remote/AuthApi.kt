@@ -10,6 +10,6 @@ interface AuthApi {
 
     @POST("api/login")
     suspend fun login(
-        @Body request: LoginRequest
-    ): Response<LoginResponse>
+        @Body request: com.example.nova_movil.data.remote.dto.LoginRequest
+    ): Response<com.example.nova_movil.data.remote.dto.LoginResponse>
 }

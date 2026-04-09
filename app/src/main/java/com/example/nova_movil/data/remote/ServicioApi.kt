@@ -15,26 +15,26 @@ import retrofit2.http.Path
 interface ServicioApi {
 
     @GET("api/servicios")
-    suspend fun getServicios(): Response<ServicioListResponse>
+    suspend fun getServicios(): Response<com.example.nova_movil.data.remote.dto.ServicioListResponse>
 
     @POST("api/servicios")
     suspend fun createServicio(
-        @Body request: ServicioRequestDto
-    ): Response<BasicApiResponse>
+        @Body request: com.example.nova_movil.data.remote.dto.ServicioRequestDto
+    ): Response<com.example.nova_movil.data.remote.dto.BasicApiResponse>
 
     @PUT("api/servicios/{id}")
     suspend fun updateServicio(
         @Path("id") id: Int,
-        @Body request: ServicioRequestDto
-    ): Response<BasicApiResponse>
+        @Body request: com.example.nova_movil.data.remote.dto.ServicioRequestDto
+    ): Response<com.example.nova_movil.data.remote.dto.BasicApiResponse>
 
     @PATCH("api/servicios/{id}/toggle")
     suspend fun toggleServicio(
         @Path("id") id: Int
-    ): Response<BasicApiResponse>
+    ): Response<com.example.nova_movil.data.remote.dto.BasicApiResponse>
 
     @DELETE("api/servicios/{id}")
     suspend fun deleteServicio(
         @Path("id") id: Int
-    ): Response<BasicApiResponse>
+    ): Response<com.example.nova_movil.data.remote.dto.BasicApiResponse>
 }

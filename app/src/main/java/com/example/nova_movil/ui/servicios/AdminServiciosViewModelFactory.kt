@@ -5,7 +5,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.nova_movil.data.repository.ServicioRepository
 
 class AdminServiciosViewModelFactory(
-    private val servicioRepository: ServicioRepository
+    private val servicioRepository: com.example.nova_movil.data.repository.ServicioRepository
 ) : ViewModelProvider.Factory {
 
     @Suppress("UNCHECKED_CAST")

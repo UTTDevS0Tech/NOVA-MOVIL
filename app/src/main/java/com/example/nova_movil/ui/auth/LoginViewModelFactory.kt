@@ -6,8 +6,8 @@ import com.example.nova_movil.data.local.SessionManager
 import com.example.nova_movil.data.repository.AuthRepository
 
 class LoginViewModelFactory(
-    private val authRepository: AuthRepository,
-    private val sessionManager: SessionManager
+    private val authRepository: com.example.nova_movil.data.repository.AuthRepository,
+    private val sessionManager: com.example.nova_movil.data.local.SessionManager
 ) : ViewModelProvider.Factory {
 
     @Suppress("UNCHECKED_CAST")

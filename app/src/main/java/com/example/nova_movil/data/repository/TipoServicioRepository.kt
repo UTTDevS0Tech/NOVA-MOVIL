@@ -7,9 +7,9 @@ import com.example.nova_movil.data.remote.dto.TipoServicioRequestDto
 import retrofit2.Response
 
 class TipoServicioRepository(
-    private val tipoServicioApi: TipoServicioApi
+    private val tipoServicioApi: com.example.nova_movil.data.remote.TipoServicioApi
 ) {
-    suspend fun getTiposServicio(): Response<TipoServicioListResponse> {
+    suspend fun getTiposServicio(): Response<com.example.nova_movil.data.remote.dto.TipoServicioListResponse> {
         return tipoServicioApi.getTiposServicio()
     }
 
@@ -20,9 +20,9 @@ class TipoServicioRepository(
         activo: Boolean,
         tiempoEstimado: Int,
         servicioId: Int
-    ): Response<BasicApiResponse> {
+    ): Response<com.example.nova_movil.data.remote.dto.BasicApiResponse> {
         return tipoServicioApi.createTipoServicio(
-            TipoServicioRequestDto(
+            _root_ide_package_.com.example.nova_movil.data.remote.dto.TipoServicioRequestDto(
                 nombre = nombre,
                 precio = precio,
                 descripcion = descripcion,
@@ -41,10 +41,10 @@ class TipoServicioRepository(
         activo: Boolean,
         tiempoEstimado: Int,
         servicioId: Int
-    ): Response<BasicApiResponse> {
+    ): Response<com.example.nova_movil.data.remote.dto.BasicApiResponse> {
         return tipoServicioApi.updateTipoServicio(
             id = id,
-            request = TipoServicioRequestDto(
+            request = _root_ide_package_.com.example.nova_movil.data.remote.dto.TipoServicioRequestDto(
                 nombre = nombre,
                 precio = precio,
                 descripcion = descripcion,
@@ -55,11 +55,11 @@ class TipoServicioRepository(
         )
     }
 
-    suspend fun toggleTipoServicio(id: Int): Response<BasicApiResponse> {
+    suspend fun toggleTipoServicio(id: Int): Response<com.example.nova_movil.data.remote.dto.BasicApiResponse> {
         return tipoServicioApi.toggleTipoServicio(id)
     }
 
-    suspend fun deleteTipoServicio(id: Int): Response<BasicApiResponse> {
+    suspend fun deleteTipoServicio(id: Int): Response<com.example.nova_movil.data.remote.dto.BasicApiResponse> {
         return tipoServicioApi.deleteTipoServicio(id)
     }
 }

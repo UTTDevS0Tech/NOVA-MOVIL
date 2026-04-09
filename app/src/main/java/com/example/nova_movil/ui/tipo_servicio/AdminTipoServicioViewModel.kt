@@ -10,7 +10,7 @@ import kotlinx.coroutines.launch
 
 
 class AdminTipoServicioViewModel(
-    private val tipoServicioRepository: TipoServicioRepository
+    private val tipoServicioRepository: com.example.nova_movil.data.repository.TipoServicioRepository
 ) : ViewModel() {
 
     private val _uiState = MutableStateFlow(AdminTipoServicioUiState(isLoading = true))

@@ -342,7 +342,7 @@ fun AdminServiciosScreen(
 
 @Composable
 private fun ServicioAdminCard(
-    servicio: ServicioDto,
+    servicio: com.example.nova_movil.data.remote.dto.ServicioDto,
     onEditClick: () -> Unit,
     onToggleClick: () -> Unit,
     onDeleteClick: () -> Unit

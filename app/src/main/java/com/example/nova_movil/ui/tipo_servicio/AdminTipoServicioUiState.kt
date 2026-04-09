@@ -10,12 +10,12 @@ enum class TipoServicioFilter {
 
 data class AdminTipoServicioUiState(
     val isLoading: Boolean = false,
-    val tiposServicio: List<TipoServicioDto> = emptyList(),
+    val tiposServicio: List<com.example.nova_movil.data.remote.dto.TipoServicioDto> = emptyList(),
     val error: String? = null,
     val actionMessage: String? = null,
     val selectedFilter: TipoServicioFilter = TipoServicioFilter.TODOS
 ) {
-    val filteredTiposServicio: List<TipoServicioDto>
+    val filteredTiposServicio: List<com.example.nova_movil.data.remote.dto.TipoServicioDto>
         get() = when (selectedFilter) {
             TipoServicioFilter.TODOS -> tiposServicio
             TipoServicioFilter.ACTIVOS -> tiposServicio.filter { it.isActivo }

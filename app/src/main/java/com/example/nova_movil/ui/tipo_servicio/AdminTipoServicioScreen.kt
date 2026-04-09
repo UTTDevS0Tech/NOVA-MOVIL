@@ -358,7 +358,7 @@ fun AdminTipoServicioScreen(
 
 @Composable
 private fun TipoServicioCard(
-    item: TipoServicioDto,
+    item: com.example.nova_movil.data.remote.dto.TipoServicioDto,
     onEditClick: () -> Unit,
     onToggleClick: () -> Unit,
     onDeleteClick: () -> Unit
